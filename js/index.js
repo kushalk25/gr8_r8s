@@ -1,24 +1,16 @@
 
-// Get stuff from OMDB
-function OnSearch() {
-    alert('Form submitted!');
+$('#search_bar').on('submit', function (e) {
+    title = e.target[0].value
+
+    fetch_url = 'http://www.omdbapi.com/?t=' + title
+    result = $.ajax ({
+      type: 'GET',
+      url: fetch_url,
+      success: function(movies) {
+          document.getElementById('content').innerHTML = movies.Metascore
+      }
+
+    });
+
     return false;
-}
-
-
-function search() {
-  $.ajax ({
-  type: 'GET',
-  url: 'http://www.omdbapi.com/?t=',
-  success: function(movies) {
-
-    $.each(movies, function(index, movies){
-      var movieRating = movies.Metascore;
-      console.log= (movieRating)
-    })
-
-
-  }
-
 });
-}

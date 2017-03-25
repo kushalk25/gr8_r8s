@@ -1,1 +1,1 @@
-This is a movie ratings site
+This is a movie ratings site.
